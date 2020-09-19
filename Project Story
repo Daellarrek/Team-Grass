@@ -1,1 +1,28 @@
+#Movie Eaters 
+
+## Project Description
+This application will allow a user to utilize time efficiently during a movie night out. 
+Using geo location the application will provide a list of movie theaters near them. 
+Once the user has selected the theater location, the application will then provide a list of nearby eateries. 
+
+##User Story
+As a movie goer I want to find a preferred movie theater and then see nearby eateries in proximity to my theater choice. 
+
+###API's Used
+
+Geolocation API
+Zomato
+MovieGlu
+
+### CSS & JS Alternatives
+
+Tailwind
+Lodash
+
+
+
+
+
+
+
 
