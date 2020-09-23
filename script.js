@@ -6,13 +6,19 @@
 
 //Link our APIs KEY: 
     //GeoLocation - CF
-    const userAllowed =(position) => {
-        console.log(position)
+    const userAllowed = function(position) {
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        console.log(lat)
+        console.log(long)
     };
-    const userDenied =(error) => {
+    const userDenied = function(error) {
         console.error(error)
     }; 
     navigator.geolocation.getCurrentPosition(userAllowed, userDenied);
+
+
+
 
 
     
