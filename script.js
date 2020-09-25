@@ -11,6 +11,7 @@
         let long = position.coords.longitude;
         console.log(lat)
         console.log(long)
+        nearbyMovie(lat,long)
     };
     const userDenied = function(error) {
         console.error(error)
@@ -21,11 +22,28 @@
 
 
 
-    
-    
+    function nearbyMovie (lat, long) {    
     //MovieGlu -LP
+    let settings = {
+        "url": "https://api-gate2.movieglu.com/cinemasNearby",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+          "authorization": "Basic VU5JVl8zOTpNSEQyS1ZCOExMd2c=",
+          "x-api-key": "TI1OJjZRsga77c93g3pAa5dA7ej2iGBZ4hfKcqUS",
+          "client": "UNIV_39",
+          "territory": "US",
+          "api-version": "v200",
+          "device-datetime": "2020-09-23T03:24:31.392Z",
+          "geolocation": lat + ";" + long
+        },
+      };
+      
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
 
-
+    }
     //Zomato -DM
 
 //Once GeoLocation is pulled then create a click event on Button.
