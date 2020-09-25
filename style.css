@@ -1,1 +1,32 @@
-.header {font-size: x-small;}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif,;
+    font-size: 16px;
+    line-height: 150%;
+    color: #333;
+    background: #FDF5E6;
+  }
+  
+  header {
+    background: #2e2422;
+  }
+
+
+.movieheader {
+  padding: 30px 0px;
+  margin: 0;
+  font-size: 60px;
+  color: #8B0000;
+  text-align: center;
+  font-family: fantasy;
+  font-style: italic;
+  line-height: 50px;
+
+}
+
+.buttonTable {
+ padding-left: 15px;
+
+}
