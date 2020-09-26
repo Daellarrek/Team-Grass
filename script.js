@@ -2,6 +2,7 @@
 //Jumbotron for Movie Eaters
 //Row for Movies: Find Movies Here Col, Button Col, and Results Col
 //Row for Eateries Near Movie: Display results
+
 //Link our APIs KEY: 
 //GeoLocation - CF
 //hide function for button and search div {}
@@ -26,6 +27,7 @@ const userDenied = function (error) {
     console.error(error)
     if (userDenied) {
 
+
     }
     // call the hidden function
 };
@@ -34,6 +36,7 @@ navigator.geolocation.getCurrentPosition(userAllowed, userDenied);
 // }
 function nearbyMovie(lat, long) {
     //MovieGlu -LP
+
 
     let date = new Date();
     let settings = {
@@ -60,7 +63,7 @@ function nearbyMovie(lat, long) {
             let lat = response.cinemas[i].lat
             let lng = response.cinemas[i].lng
             let cinBtn = $("<div id='cinSelector'>");
-            cinBtn.addClass("max-w-sm bg-red-700 hover:bg-red-800 rounded overflow-hidden shadow-lg mt-4 mb-4");
+            cinBtn.addClass("max-w-sm bg-indigo-700 hover:bg-indigo-700 rounded overflow-hidden shadow-lg mt-4 mb-4");
             cinBtn.attr('data-lat', lat).attr('data-long', lng)
             // cinBtn.attr("id", "cards")
             let cinName = $("<h4>").text(name);
@@ -126,55 +129,99 @@ function zipCoord(zipCode) {
         console.log(response);
         nearbyMovieZip(inputZipLat, inputZipLong)
 
+
     });
 }
 
 
 function nearbyMovieZip(inputZipLat, inputZipLong) {
+
     //MovieGlu -LP
-
-    let date = new Date();
-
-
     let settings = {
         "url": "https://api-gate2.movieglu.com/cinemasNearby",
         "method": "GET",
         "timeout": 0,
         "headers": {
-            "authorization": "Basic VDphRHRsOTc5MEFoem4=",
-            "x-api-key": "thGS5snLHlEQZWRRLowV3Iv8gF3rE7B6b4KdWab4",
-            "client": "T",
+            "authorization": "Basic VUE6WUVwTXZHT2tqaXZr",
+            "x-api-key": "gsKMErlHzm91drFW8RjLJ2pVz2wmxF0M5WBrq22P",
+            "client": "UA",
             "territory": "US",
             "api-version": "v200",
-            "device-datetime": date.toISOString(),
-            "geolocation": inputZipLat + ";" + inputZipLong
+            "device-datetime": "2020-09-23T03:24:31.392Z",
+            "geolocation": lat + ";" + long
         },
     };
+
     $.ajax(settings).done(function (response) {
+
+
+
         for (let i = 0; i < 5; i++) {
+
             let name = response.cinemas[i].cinema_name;
             let address = response.cinemas[i].address;
             let city = response.cinemas[i].city;
             let state = response.cinemas[i].state;
             let postcode = response.cinemas[i].postcode;
-            let lat = response.cinemas[i].lat
-            let lng = response.cinemas[i].lng
+
             let cinBtn = $("<div id='cinSelector'>");
             cinBtn.addClass("max-w-sm bg-red-700 hover:bg-red-800 rounded overflow-hidden shadow-lg mt-4 mb-4");
-            cinBtn.attr('data-lat', lat).attr('data-long', lng)
+            cinBtn.attr('data-lat', lat).attr('data-long', long)
+
             // cinBtn.attr("id", "cards")
+
             let cinName = $("<h4>").text(name);
             cinName.addClass("text-white font-semibold ml-2 mt-2 mb-2")
             let cinAdd = $("<p>").text(address);
             cinAdd.addClass("text-white font-normal ml-2 mt-2 mb-2")
             let lineAddress = $("<p>").text(city + "," + " " + state + " " + postcode);
             lineAddress.addClass("text-white font-normal ml-2 mt-2 mb-2")
-            cinBtn.append(cinName, cinAdd, lineAddress);
-            $("#movieResults").append(cinBtn);
-            console.log(response.cinemas[i]);
+
+
+            let date = new Date();
+
+
+            let settings = {
+                "url": "https://api-gate2.movieglu.com/cinemasNearby",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "authorization": "Basic VDphRHRsOTc5MEFoem4=",
+                    "x-api-key": "thGS5snLHlEQZWRRLowV3Iv8gF3rE7B6b4KdWab4",
+                    "client": "T",
+                    "territory": "US",
+                    "api-version": "v200",
+                    "device-datetime": date.toISOString(),
+                    "geolocation": inputZipLat + ";" + inputZipLong
+                },
+            };
+            $.ajax(settings).done(function (response) {
+                for (let i = 0; i < 5; i++) {
+                    let name = response.cinemas[i].cinema_name;
+                    let address = response.cinemas[i].address;
+                    let city = response.cinemas[i].city;
+                    let state = response.cinemas[i].state;
+                    let postcode = response.cinemas[i].postcode;
+                    let lat = response.cinemas[i].lat
+                    let lng = response.cinemas[i].lng
+                    let cinBtn = $("<div id='cinSelector'>");
+                    cinBtn.addClass("max-w-sm bg-indigo-700 hover:bg-indigo-700 rounded overflow-hidden shadow-lg mt-4 mb-4");
+                    cinBtn.attr('data-lat', lat).attr('data-long', lng)
+                    // cinBtn.attr("id", "cards")
+                    let cinName = $("<h4>").text(name);
+                    cinName.addClass("text-white font-semibold ml-2 mt-2 mb-2")
+                    let cinAdd = $("<p>").text(address);
+                    cinAdd.addClass("text-white font-normal ml-2 mt-2 mb-2")
+                    let lineAddress = $("<p>").text(city + "," + " " + state + " " + postcode);
+                    lineAddress.addClass("text-white font-normal ml-2 mt-2 mb-2")
+                    cinBtn.append(cinName, cinAdd, lineAddress);
+                    $("#movieResults").append(cinBtn);
+                    console.log(response.cinemas[i]);
+                }
+            });
+            // $("#eateriesResults").text(cinemas[0].cinema_name);
         }
-    });
-    // $("#eateriesResults").text(cinemas[0].cinema_name);
+    })
 }
 
 //Zomato -DM
@@ -204,7 +251,7 @@ function eateries(inputZipLat, inputZipLong) {
             let eaterMenu = response.restaurants[i].restaurant.menu_url
 
             let eatBtn = $("<div>");
-            eatBtn.addClass("max-w-sm bg-blue-700 hover:bg-blue-800 rounded overflow-hidden shadow-lg mt-4 mb-4");
+            eatBtn.addClass("max-w-sm bg-purple-700 hover:bg-purple-700 rounded overflow-hidden shadow-lg mt-4 mb-4");
             eatBtn.attr('data-lat', inputZipLat).attr('data-long', inputZipLong)
             // cinBtn.attr("id", "cards")
             let cinName = $("<h4>").text(eaterName);
@@ -222,10 +269,10 @@ function eateries(inputZipLat, inputZipLong) {
             lineMenu.addClass("text-white font-normal ml-2 mt-2 mb-2")
             eatBtn.append(cinName, cinAdd, lineCost, lineHour, lineRate, lineMenu);
             $("#eateriesResults").append(eatBtn);
-    
+
         };
 
-     
+
 
     });
 
