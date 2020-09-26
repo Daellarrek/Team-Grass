@@ -1,0 +1,74 @@
+{
+	"cinemas": [
+		{
+			"cinema_id": 50946,
+			"cinema_name": "Walmart Drive-in Theater - Las Cruces 4601",
+			"address": "3331 Rinconada Blvd",
+			"address2": "",
+			"city": "Las Cruces",
+			"state": "NM",
+			"county": "",
+			"postcode": 88011,
+			"lat": 32.3601,
+			"lng": -106.746101,
+			"distance": 147.50519296884,
+			"logo_url": "https://assets.movieglu.com/chain_logos/us/UK-2389-sq.jpg"
+		},
+		{
+			"cinema_id": 37215,
+			"cinema_name": "Cinemark East Montana and XD",
+			"address": "12704 East Montana",
+			"address2": "East of Joe Battle Avenue",
+			"city": "El Paso",
+			"state": "TX",
+			"county": "El Paso",
+			"postcode": 79938,
+			"lat": 31.80871,
+			"lng": -106.246902,
+			"distance": 148.79926483819,
+			"logo_url": "https://assets.movieglu.com/chain_logos/us/UK-801-sq.jpg"
+		},
+		{
+			"cinema_id": 4946,
+			"cinema_name": "Cinemark Movies 16 and XD",
+			"address": "5721 58th Street",
+			"address2": "",
+			"city": "Lubbock",
+			"state": "TX",
+			"county": "Lubbock",
+			"postcode": 79424,
+			"lat": 33.541161,
+			"lng": -101.9375,
+			"distance": 149.59899380436,
+			"logo_url": "https://assets.movieglu.com/chain_logos/us/UK-801-sq.jpg"
+		},
+		{
+			"cinema_id": 38703,
+			"cinema_name": "Alamo Drafthouse Cinema - Lubbock",
+			"address": "120 W. Loop 289",
+			"address2": "",
+			"city": "Lubbock",
+			"state": "TX",
+			"county": "Lubbock",
+			"postcode": 79416,
+			"lat": 33.596691,
+			"lng": -101.925102,
+			"distance": 150.55723218861,
+			"logo_url": "https://assets.movieglu.com/chain_logos/us/UK-772-sq.jpg"
+		},
+		{
+			"cinema_id": 8615,
+			"cinema_name": "Stars & Stripes Drive-In Lubbock",
+			"address": "5101 Clovis Highway",
+			"address2": "",
+			"city": "Lubbock",
+			"state": "TX",
+			"county": "Lubbock",
+			"postcode": 79416,
+			"lat": 33.631699,
+			"lng": -101.920303,
+			"distance": 151.03666440816,
+			"logo_url": "https://assets.movieglu.com/chain_logos/us/UK-1646-sq.jpg"
+		}
+	]
+}
