@@ -10,13 +10,17 @@
 // if the user approves location grab user Allowed function and move forward with the ajax call
 // if the user denies location then wait for user to enter in zipcode than grab lat and long from local storage and run ajax call again. 
 // function findMovies() {
+
+let rest = "";
+let movie = "";
+
 const userAllowed = function (position) {
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
     console.log(lat)
     console.log(long)
-    //nearbyMovie(lat, long)
-    eateries(lat, long)
+    nearbyMovie(lat, long)
+    //eateries(lat, long)
 };
 const userDenied = function (error) {
     console.error(error)
@@ -37,9 +41,9 @@ function nearbyMovie(lat, long) {
         "method": "GET",
         "timeout": 0,
         "headers": {
-            "authorization": "Basic VUE6WUVwTXZHT2tqaXZr",
-            "x-api-key": "gsKMErlHzm91drFW8RjLJ2pVz2wmxF0M5WBrq22P",
-            "client": "UA",
+            "authorization": "Basic VDphRHRsOTc5MEFoem4=",
+            "x-api-key": "thGS5snLHlEQZWRRLowV3Iv8gF3rE7B6b4KdWab4",
+            "client": "T",
             "territory": "US",
             "api-version": "v200",
             "device-datetime": date.toISOString(),
@@ -53,9 +57,11 @@ function nearbyMovie(lat, long) {
             let city = response.cinemas[i].city;
             let state = response.cinemas[i].state;
             let postcode = response.cinemas[i].postcode;
+            let lat = response.cinemas[i].lat
+            let lng = response.cinemas[i].lng
             let cinBtn = $("<div id='cinSelector'>");
             cinBtn.addClass("max-w-sm bg-red-700 hover:bg-red-800 rounded overflow-hidden shadow-lg mt-4 mb-4");
-            cinBtn.attr('data-lat', lat).attr('data-long', long)
+            cinBtn.attr('data-lat', lat).attr('data-long', lng)
             // cinBtn.attr("id", "cards")
             let cinName = $("<h4>").text(name);
             cinName.addClass("text-white font-semibold ml-2 mt-2 mb-2")
@@ -64,12 +70,14 @@ function nearbyMovie(lat, long) {
             let lineAddress = $("<p>").text(city + "," + " " + state + " " + postcode);
             lineAddress.addClass("text-white font-normal ml-2 mt-2 mb-2")
             cinBtn.append(cinName, cinAdd, lineAddress);
-            $("#eateriesResults").append(cinBtn);
+            $("#movieResults").append(cinBtn);
             console.log(response.cinemas[i]);
         }
     });
     // $("#eateriesResults").text(cinemas[0].cinema_name);
 }
+
+
 $(document).on('click', '#cinSelector', function (event) {
     let cinChoiceLat = $(this).attr('data-lat')
     let cinChoiceLong = $(this).attr('data-long')
@@ -78,28 +86,33 @@ $(document).on('click', '#cinSelector', function (event) {
     eateries(cinChoiceLat, cinChoiceLong)
     console.log(cinChoiceLat)
     console.log(cinChoiceLong)
-})
-$("#goBtn").click(function (event) {
-    event.preventDefault()
+});
+
+
+function selector() {
     let zipCode = document.getElementById("zipInput").value;
     console.log(zipCode)
     //TODO: TURN BACK ON
-    //zipCoord(zipCode)
+    zipCoord(zipCode)
+};
+
+
+$("#goBtn").click(function (event) {
+    event.preventDefault()
+    selector()
 });
+
 
 $("#zipForm").on("submit", function (event) {
     event.preventDefault()
-    let zipCode = document.getElementById("zipInput").value;
-    console.log(zipCode)
-    // TODO: TURN BACK ON
-    //zipCoord(zipCode)
+    selector()
 });
+
 // console.log(zipCode)
 // function grabCinema()
 
-
 function zipCoord(zipCode) {
-    // console.log("zipCoord")
+    //console.log("zipCoord")
     let zipCall = {
         "url": "http://open.mapquestapi.com/geocoding/v1/address?key=ykA4WAc6c08xZnA8CSZQHDNopfYnYhnT&location=" + zipCode + "&maxResults=1",
         "method": "GET",
@@ -115,6 +128,8 @@ function zipCoord(zipCode) {
 
     });
 }
+
+
 function nearbyMovieZip(inputZipLat, inputZipLong) {
     //MovieGlu -LP
 
@@ -126,9 +141,9 @@ function nearbyMovieZip(inputZipLat, inputZipLong) {
         "method": "GET",
         "timeout": 0,
         "headers": {
-            "authorization": "Basic VUE6WUVwTXZHT2tqaXZr",
-            "x-api-key": "gsKMErlHzm91drFW8RjLJ2pVz2wmxF0M5WBrq22P",
-            "client": "UA",
+            "authorization": "Basic VDphRHRsOTc5MEFoem4=",
+            "x-api-key": "thGS5snLHlEQZWRRLowV3Iv8gF3rE7B6b4KdWab4",
+            "client": "T",
             "territory": "US",
             "api-version": "v200",
             "device-datetime": date.toISOString(),
@@ -142,9 +157,11 @@ function nearbyMovieZip(inputZipLat, inputZipLong) {
             let city = response.cinemas[i].city;
             let state = response.cinemas[i].state;
             let postcode = response.cinemas[i].postcode;
+            let lat = response.cinemas[i].lat
+            let lng = response.cinemas[i].lng
             let cinBtn = $("<div id='cinSelector'>");
             cinBtn.addClass("max-w-sm bg-red-700 hover:bg-red-800 rounded overflow-hidden shadow-lg mt-4 mb-4");
-            cinBtn.attr('data-lat', inputZipLat).attr('data-long', inputZipLong)
+            cinBtn.attr('data-lat', lat).attr('data-long', lng)
             // cinBtn.attr("id", "cards")
             let cinName = $("<h4>").text(name);
             cinName.addClass("text-white font-semibold ml-2 mt-2 mb-2")
@@ -153,13 +170,15 @@ function nearbyMovieZip(inputZipLat, inputZipLong) {
             let lineAddress = $("<p>").text(city + "," + " " + state + " " + postcode);
             lineAddress.addClass("text-white font-normal ml-2 mt-2 mb-2")
             cinBtn.append(cinName, cinAdd, lineAddress);
-            $("#eateriesResults").append(cinBtn);
+            $("#movieResults").append(cinBtn);
             console.log(response.cinemas[i]);
         }
     });
     // $("#eateriesResults").text(cinemas[0].cinema_name);
 }
+
 //Zomato -DM
+
 function eateries(inputZipLat, inputZipLong) {
 
     $.ajax({
@@ -175,27 +194,38 @@ function eateries(inputZipLat, inputZipLong) {
 
     }).then(function (response) {
         console.log(response)
-        let eaterName = response.resturaunts[i].resturaunt.name
-        let eaterAdd = response.resturaunts[i].resturaunt.location.address
-        let eaterCost = response.resturaunts[i].resturaunt.average_cost_for_two
-        let eaterHour = response.resturaunts[i].resturaunt.timings
-        let eaterRate = response.resturaunts[i].resturaunt.user_rating.aggregate_rating
-        let eaterMenu = response.resturaunts[i].resturaunt.menu_url
+        $("#eateriesResults").empty();
+        for (let i = 0; i < 5; i++) {
+            let eaterName = response.restaurants[i].restaurant.name
+            let eaterAdd = response.restaurants[i].restaurant.location.address
+            let eaterCost = response.restaurants[i].restaurant.average_cost_for_two
+            let eaterHour = response.restaurants[i].restaurant.timings
+            let eaterRate = response.restaurants[i].restaurant.user_rating.aggregate_rating
+            let eaterMenu = response.restaurants[i].restaurant.menu_url
 
-        let eatBtn = $("<div id='cinSelector'>");
-        eatBtn.addClass("max-w-sm bg-blue-700 hover:bg-blue-800 rounded overflow-hidden shadow-lg mt-4 mb-4");
-        eatBtn.attr('data-lat', inputZipLat).attr('data-long', inputZipLong)
-        // cinBtn.attr("id", "cards")
-        let cinName = $("<h4>").text(name);
-        cinName.addClass("text-white font-semibold ml-2 mt-2 mb-2")
-        let cinAdd = $("<p>").text(address);
-        cinAdd.addClass("text-white font-normal ml-2 mt-2 mb-2")
-        let lineAddress = $("<p>").text(city + "," + " " + state + " " + postcode);
-        lineAddress.addClass("text-white font-normal ml-2 mt-2 mb-2")
-        cinBtn.append(cinName, cinAdd, lineAddress);
-        $("#eateriesResults").append(eatBtn);
+            let eatBtn = $("<div>");
+            eatBtn.addClass("max-w-sm bg-blue-700 hover:bg-blue-800 rounded overflow-hidden shadow-lg mt-4 mb-4");
+            eatBtn.attr('data-lat', inputZipLat).attr('data-long', inputZipLong)
+            // cinBtn.attr("id", "cards")
+            let cinName = $("<h4>").text(eaterName);
+            cinName.addClass("text-white font-semibold ml-2 mt-2 mb-2")
+            let cinAdd = $("<p>").text("Address: " + eaterAdd);
+            cinAdd.addClass("text-white font-normal ml-2 mt-2 mb-2")
+            let lineCost = $("<p>").text("Date Night Cost: " + eaterCost);
+            lineCost.addClass("text-white font-normal ml-2 mt-2 mb-2")
+            let lineHour = $("<p>").text("Hours: " + eaterHour);
+            lineHour.addClass("text-white font-normal ml-2 mt-2 mb-2")
+            let lineRate = $("<p>").text("Rating: " + eaterRate);
+            lineRate.addClass("text-white font-normal ml-2 mt-2 mb-2")
+            let lineMenu = $("<a> Menu </a>")
+            lineMenu.attr("href", eaterMenu).attr("target", "_blank")
+            lineMenu.addClass("text-white font-normal ml-2 mt-2 mb-2")
+            eatBtn.append(cinName, cinAdd, lineCost, lineHour, lineRate, lineMenu);
+            $("#eateriesResults").append(eatBtn);
+    
+        };
 
-
+     
 
     });
 
