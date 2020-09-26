@@ -2,15 +2,18 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Movie Eaters</title>
     <link rel="icon" href="http://s3.amazonaws.com/www.adpretirementmarketing.com/emails/99-5448/0920/06/Movie_Eaters_Logo.jpg" type="image/x-icon/">
+
 </head>
 
 <body>
+
 
     <header>
         <div class="flex mb-4">
@@ -50,16 +53,40 @@
             </div>
 
 
+    </div>
+  </header>
 
-            
-             <!--Column 2--> 
-            <!-- Movie results will get dumped Here -->
+  <div class="container">
+    <br>
+    <br>
+    <br>
+    <!-- Row 1 -->
+    <div class="row">
+      <!--Column 1-->
+      <div class="col-md-6 buttonTable">
+        <!-- Button triggers new movie to be entered -->
+        <div class="w-full max-w-xs">
+          <form>
+            <div class="mb-4">
 
-            <div class="col-md-6" id="movieResults">
-
+              <input id="zipInput"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="username" type="text" placeholder="Enter Zip Code">
             </div>
 
+            <div class="flex items-center justify-between">
+              <button id="goBtn"
+                class="bg-red-700 hover:bg-black-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button" id="moveieNew">
+                GO
+              </button>
+
+            </div>
+          </form>
+
         </div>
+      </div>
+
 
 
         <!-- Row 2 -->
@@ -67,24 +94,43 @@
         <div class="row">
             <div class="col-md-12 ml-4 mt-4" id="eateriesResults">
 
-            </div>
-        </div>
 
 
+      <!--Column 2-->
+      <!-- Movie results will get dumped Here -->
 
+      <div class="col-md-6" id="movieResults">
 
-
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-        </script>
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
-        <script type="text/javascript" src="script.js"></script>
+      </div>
 
     </div>
+
+
+    <!-- Row 2 -->
+    <!-- Eateries results will get dumped Here -->
+    <div class="row" >
+      <div class="col-md-12 ml-4 mt-4" id="eateriesResults">
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+      </script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+  </div>
 </body>
 
 </html>
