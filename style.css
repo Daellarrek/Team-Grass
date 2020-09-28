@@ -22,11 +22,29 @@ body {
   text-align: center;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;  
   
-  line-height: 50px;
+  line-height: 100px;
 
 }
 
 .buttonTable {
  padding-left: 15px;
 
+}
+
+.movieSelect{
+  font-size: 25px;
+  color: #c53030;
+  
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  line-height: 50px;
+}
+
+
+.eatSelect{
+  font-size: 25px;
+  color: #c53030;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  line-height: 50px;
 }
