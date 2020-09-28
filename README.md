@@ -1,4 +1,4 @@
 # Team-Grass
-<img width="1597" alt="Screen Shot 2020-09-25 at 7 49 22 PM" src="https://user-images.githubusercontent.com/62733242/94328543-47880680-ff68-11ea-9e18-7171b7fbfe1b.png">
+<img width="1354" alt="Screen Shot 2020-09-27 at 6 59 29 PM" src="https://user-images.githubusercontent.com/62733242/94383037-b9d92200-00f3-11eb-91c7-aeed77dd8554.png">
 
 The name of the 'Team-Grass' project #1 is Movie Eaters! This applications allows its users to use their time more efficiently during a movie night out. Using geo location and mapquest, this application will display movie theaters in the users area. If the user denies to share their 'Know your location' alert, they will have to input their zip code in order to view nearby movie theatres. If the user accepts the 'Know your location' allert, our application will display the closest five theatres nearest to the users area. The information includes the movie theatre name, adress and zip code. After the user selects a cinema, the longitude and latitude will then be stored into their local storage, where our Zomoto Api will use to display nearby eatieries. 
