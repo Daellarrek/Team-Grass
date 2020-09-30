@@ -8,23 +8,23 @@ The name of the 'Team-Grass' project #1 is Movie Eaters! This applications allow
 
 The user will allow or deny access to their location to launch application.
 
-![User Location Allowance]assets/knowlocation.png
+![User Location Allowance](assets/knowlocation.png)
 
 ## Nearby Movies
 
 Once location is allowed or zip code has been entered, the user will see the five closest movie theaters near their location.
 
-![Movies Nearby]assets/movies.png
+![Movies Nearby](assets/movies.png)
 
 ## Eateries Nearby
 
 Once the user has selected their preferred movie theater, they will be shown the five closest eateries nearby. 
 
-![Eateries Nearby]assets/eateries.png
+![Eateries Nearby](assets/eateries.png)
 
 ## Selector Option
 
 The user is able to switch back and forth, choosing different movie theaters and being prompted with different nearby eateries.
 
-![Selector]assets/selector.png
+![Selector](assets/selector.png)
 
