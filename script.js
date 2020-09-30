@@ -27,15 +27,17 @@ function nearbyMovie(lat, long) {
         "method": "GET",
         "timeout": 0,
         "headers": {
-            "authorization": "Basic VDphRHRsOTc5MEFoem4=",
-            "x-api-key": "thGS5snLHlEQZWRRLowV3Iv8gF3rE7B6b4KdWab4",
-            "client": "T",
+            "authorization": "Basic VEVTVF81NjpjbWdTZFNOOFlLa2k=",
+            "x-api-key": "Wv9dazQVqm5tCH8xj1ags5YSDN94QyI45pWyMuSP",
+            "client": "TEST_56",
             "territory": "US",
             "api-version": "v200",
             "device-datetime": date.toISOString(),
             "geolocation": lat.toFixed(5) + ";" + long.toFixed(5)
         },
     };
+
+   
 
     $.ajax(settings).done(function (response) {
         for (let i = 0; i < 5; i++) {
@@ -123,13 +125,13 @@ function nearbyMovieZip(inputZipLat, inputZipLong) {
         "method": "GET",
         "timeout": 0,
         "headers": {
-            "authorization": "Basic VDphRHRsOTc5MEFoem4=",
-            "x-api-key": "thGS5snLHlEQZWRRLowV3Iv8gF3rE7B6b4KdWab4",
-            "client": "T",
+            "authorization": "Basic VEVTVF81NjpjbWdTZFNOOFlLa2k=",
+            "x-api-key": "Wv9dazQVqm5tCH8xj1ags5YSDN94QyI45pWyMuSP",
+            "client": "TEST_56",
             "territory": "US",
             "api-version": "v200",
             "device-datetime": date.toISOString(),
-            "geolocation": inputZipLat + ";" + inputZipLong
+            "geolocation": inputZipLat.toFixed(5) + ";" + inputZipLong.toFixed(5)
         },
     };
 
